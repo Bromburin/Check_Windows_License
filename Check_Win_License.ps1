@@ -7,7 +7,7 @@ $licencestatus = 0
 $ProductKey = 0
 $License = 0 
 
-$licencestatus = (Get-CimInstance -ClassName SoftwareLicensingProduct | where {$_.name -match ‘windows’-and $_.PartialProductKey}  | select LicenseStatus)
+$licencestatus = (Get-CimInstance -ClassName SoftwareLicensingProduct | where {$_.name -match "windows" -and $_.PartialProductKey}  | select LicenseStatus)
 $License = (Get-CimInstance -ClassName SoftwareLicensingService).OA3xOriginalProductKey
 $ProductKey = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform" -Name BackupProductKeyDefault).BackupProductKeyDefault
 
